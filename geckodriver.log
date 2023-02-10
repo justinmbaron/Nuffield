@@ -1,0 +1,104 @@
+1675266167263	geckodriver	INFO	Listening on 127.0.0.1:57421
+1675266170430	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileWwgfIA"
+1675266171795	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675266171810	Marionette	INFO	Listening on port 57432
+Read port: 57432
+1675266172048	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileWwgfIA\\search.json.mozlz4", (void 0)))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://dr-emma-howard-dermatology.writeupp.com."
+1675266265755	Marionette	INFO	Stopped listening on port 57432
+Dynamically enable window occlusion 1
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 51: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1675266472481	geckodriver	INFO	Listening on 127.0.0.1:57618
+1675266475616	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileCgfMRo"
+1675266477049	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675266477064	Marionette	INFO	Listening on port 57630
+Read port: 57630
+1675266477293	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileCgfMRo\\search.json.mozlz4", (void 0)))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://dr-emma-howard-dermatology.writeupp.com."
+1675266968770	geckodriver	INFO	Listening on 127.0.0.1:57788
+1675266971910	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofilei4W6Op"
+1675266972957	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675266972972	Marionette	INFO	Listening on port 57800
+Read port: 57800
+1675266973197	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofilei4W6Op\\search.json.mozlz4", (void 0)))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://dr-emma-howard-dermatology.writeupp.com."
+1675267270084	geckodriver	INFO	Listening on 127.0.0.1:57951
+1675267273201	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileLbBjsa"
+1675267274352	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675267274366	Marionette	INFO	Listening on port 57961
+Read port: 57961
+1675267274636	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileLbBjsa\\search.json.mozlz4", (void 0)))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://dr-emma-howard-dermatology.writeupp.com."
+1675267731949	geckodriver	INFO	Listening on 127.0.0.1:58205
+1675267735106	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileOP0JJ8"
+1675267736168	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675267736182	Marionette	INFO	Listening on port 58215
+Read port: 58215
+1675267736395	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileOP0JJ8\\search.json.mozlz4", (void 0)))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://dr-emma-howard-dermatology.writeupp.com."
+1675268066611	geckodriver	INFO	Listening on 127.0.0.1:58380
+1675268069787	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofile6CafRX"
+1675268071000	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675268071015	Marionette	INFO	Listening on port 58392
+Read port: 58392
+1675268071228	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofile6CafRX\\search.json.mozlz4", (void 0)))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://dr-emma-howard-dermatology.writeupp.com."
+[Parent 12628, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:777
+1675268227842	Marionette	INFO	Stopped listening on port 58392
+Dynamically enable window occlusion 1
+1675268526431	geckodriver	INFO	Listening on 127.0.0.1:58628
+1675268529570	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileO16L54"
+1675268530794	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675268530808	Marionette	INFO	Listening on port 58639
+Read port: 58639
+1675268531033	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileO16L54\\search.json.mozlz4", (void 0)))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://dr-emma-howard-dermatology.writeupp.com."
+1675268670115	Marionette	INFO	Stopped listening on port 58639
+Dynamically enable window occlusion 1
+1676032321725	geckodriver	INFO	Listening on 127.0.0.1:65105
+1676032324887	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofile3fbMAG"
+1676032325964	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1676032325980	Marionette	INFO	Listening on port 65115
+Read port: 65115
+1676032326160	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofile3fbMAG\\search.json.mozlz4", (void 0)))
+1676032399146	geckodriver	INFO	Listening on 127.0.0.1:65149
+1676032402290	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileVT80Ns"
+1676032403271	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1676032403286	Marionette	INFO	Listening on port 65160
+Read port: 65160
+1676032403527	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\JUSTIN~1\\AppData\\Local\\Temp\\rust_mozprofileVT80Ns\\search.json.mozlz4", (void 0)))
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://portal.writeupp.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://dr-emma-howard-dermatology.writeupp.com."
