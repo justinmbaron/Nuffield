@@ -1,3 +1,6 @@
+# Create forms for Nuffiled - Alison's Version with her folders
+
+
 import os
 import csv
 import time
@@ -190,7 +193,7 @@ patientsByInsurer = writeUppURL + '/patientsbythirdparty.aspx'
 userName = 'aliwid5@gmail.com'
 password = 'Melanoma1!'
 testWUID = 'WU1191771'
-wd = 'C:\\Users\\Justin Baron\\Desktop\\Clinics'
+wd = 'C:\\Users\\Aliwid\\OneDrive\\Desktop\\Clinics'
 HospitalSheetDirectory = wd+'\\Nuffield Cheltenham'
 template_file = 'Patient Booking Form.docx'
 downloadDirectory = wd
