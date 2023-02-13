@@ -9,8 +9,6 @@ from tkinter import *
 import pymsgbox
 from docxtpl import DocxTemplate
 
-
-
 def loginWriteupp():
     #testfield = entrySuffix.get()
     #Login to writeUpp
