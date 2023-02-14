@@ -184,7 +184,7 @@ def setup_folder():
 
 version_no = "v1 JB 01/02/23"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
-driverPath = 'C:/Users/Justin Baron/Desktop/Clinics/geckodriver.exe'
+driverPath = 'C:/Users/Aliwid/OneDrive/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
 loginURL = 'https://portal.writeupp.com/login'
 patientsURL = writeUppURL + '/admin/data-management/patients.aspx'
