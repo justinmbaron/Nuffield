@@ -1,3 +1,8 @@
+# Creates Multiple word documents for Nuffield using a word template
+# v1.1 23/02/23
+# Change to match new export activities button code
+
+
 import os
 import csv
 import time
@@ -164,8 +169,9 @@ def getActivity():
     pymsgbox.alert('Enter Dates and  click OK')
 
     time.sleep(2)
-    activity_BTN = driver.find_element_by_id('ctl00_ctl00_Content_ContentPlaceHolder1_btnExportCsv')
+    activity_BTN = driver.find_element_by_xpath('/html/body/form/div[5]/div/div/div[5]/div/div/div/div/div/div[2]/button')
     activity_BTN.click()
+    time.sleep(1)
     os.chdir(wd)
     os.rename(wu_activity_filename,activity_filename)
 
@@ -177,7 +183,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1 JB 01/02/23"
+version_no = "v1.1 JB 23/02/23"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = 'C:/Users/Justin Baron/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
