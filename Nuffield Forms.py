@@ -1,5 +1,6 @@
 # Create forms for Nuffiled - Alison's Version with her folders
 # v1.1 23/02/23 update Activity export button
+# v1.2 15/06/23  - Change to writeupp report
 
 
 import os
@@ -55,8 +56,8 @@ def process_patients():
         next(patients) # skip header row
         for patient in patients:
             tp_name = patient[1]
-            tp_appointment_time = patient[4]
-            tp_appointment_date = patient[6]
+            tp_appointment_time = patient[5]
+            tp_appointment_date = patient[7]
             tp_appointment_type = patient[2]
             wuid = patient[0]
             searchField = driver.find_element_by_id('ctl00_ctl00_Content_siteHead_dfSearchWidget')
@@ -181,7 +182,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.1 AW 23/02/23"
+version_no = "v1.2 AW 15/6/23"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = 'C:/Users/Aliwid/OneDrive/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
