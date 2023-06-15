@@ -1,6 +1,7 @@
 # Creates Multiple word documents for Nuffield using a word template
 # v1.1 23/02/23
 # Change to match new export activities button code
+# v1.2 15/06/23  - Change to writeupp report
 
 
 import os
@@ -56,8 +57,8 @@ def process_patients():
         next(patients) # skip header row
         for patient in patients:
             tp_name = patient[1]
-            tp_appointment_time = patient[4]
-            tp_appointment_date = patient[6]
+            tp_appointment_time = patient[5]
+            tp_appointment_date = patient[7]
             tp_appointment_type = patient[2]
             wuid = patient[0]
             searchField = driver.find_element_by_id('ctl00_ctl00_Content_siteHead_dfSearchWidget')
@@ -169,7 +170,7 @@ def getActivity():
     pymsgbox.alert('Enter Dates and  click OK')
 
     time.sleep(2)
-    activity_BTN = driver.find_element_by_xpath('/html/body/form/div[5]/div/div/div[5]/div/div/div/div/div/div[2]/button')
+    activity_BTN = driver.find_element_by_xpath('/html/body/form/div[5]/div/div/div[6]/div/div/div/div/div/div[2]/button')
     activity_BTN.click()
     time.sleep(1)
     os.chdir(wd)
@@ -183,7 +184,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.1 JB 23/02/23"
+version_no = "v1.2 JB 15/06/23"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = 'C:/Users/Justin Baron/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
