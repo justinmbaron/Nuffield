@@ -10,6 +10,9 @@ import glob
 from selenium import webdriver
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from tkinter import *
 import pymsgbox
 from docxtpl import DocxTemplate
@@ -68,11 +71,24 @@ def process_patients():
             age_dob = age_dob_field.text
             tp_DOB = age_dob[:10]
             tp_age = age_dob[age_dob.find("(")+1:age_dob.find(")")] #grab text between the brackets
-            tp_address = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[3]/td/p').text
-            tp_home_phone = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[1]/td/span/a').text
-            tp_mobile = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[3]/td/span/a').text
-            tp_email = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[4]/td/span/a').text
-            tp_nhs = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[8]/td/div/p').text
+            try:
+                tp_address = driver.find_element_by_xpath('/html/body/form/div[4]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[3]/td').text
+                tp_home_phone = driver.find_element_by_xpath(
+                    '/html/body/form/div[4]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[1]/td/span/a').text
+                tp_mobile = driver.find_element_by_xpath(
+                    '/html/body/form/div[4]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[3]/td/span/a').text
+                tp_email = driver.find_element_by_xpath(
+                    '/html/body/form/div[4]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[4]/td/span/a').text
+                tp_nhs = driver.find_element_by_xpath(
+                    '/html/body/form/div[4]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[8]/td/div/p').text
+            except:
+                tp_address = driver.find_element_by_xpath(
+                    '/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[3]/td').text
+
+                tp_home_phone = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[1]/td/span/a').text
+                tp_mobile = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[3]/td/span/a').text
+                tp_email = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[4]/td/span/a').text
+                tp_nhs = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[8]/td/div/p').text
 
             #Get GP and insurance details
             third_parties = driver.find_elements_by_class_name('patient-summary__third-parties__name')
@@ -88,28 +104,30 @@ def process_patients():
                 first_word = third_party_text.split(' ', 1)[0]
                 back_string = third_party_text.split("- ", 1)[1]
                 doctor_word = back_string.split(' ', 1)[0]
-                if first_word in companies:
-                    # print('Found an insurance company')
-                    # print(third_party_text)
-                    tp_insurance_co = third_party_text.split('-', 1)[0]
-                    tp_insurance_co_address = back_string
-                elif doctor_word in dr_list:
+
+                first_word_lower = first_word.lower()
+                for company in companies:
+                    company_lower = company.lower()
+                    if first_word_lower in company_lower:
+                        tp_insurance_co = third_party_text.split('-', 1)[0]
+                        tp_insurance_co_address = back_string
+                    elif doctor_word in dr_list:
                     # print('found a Doctor')
                     # print(third_party_text)
-                    tp_gp_name = back_string.split(',', 1)[0]
-                    tp_gp_surgery = third_party_text.replace(tp_gp_name+",","") #remove doctors name
-                    tp_surgery_name = tp_gp_surgery.split('-',1)[0]
-                else:
-                     print('You have found something else')
-        #Check for policy number and autorisation code
-                if thirdparty_attributes != []:
-                    # print('something here')
-                    for attribute in thirdparty_attributes:
-                        third_party_attribute_text = attribute.text
-                        if "Policy Number" in third_party_attribute_text:
-                            tp_membership_no = third_party_attribute_text.split(':', 1)[1] #get the text after the :
-                        if "Authorisation Code" in third_party_attribute_text:
-                            tp_authorisation = third_party_attribute_text.split(':', 1)[1] #get the text after the :
+                        tp_gp_name = back_string.split(',', 1)[0]
+                        tp_gp_surgery = third_party_text.replace(tp_gp_name+",","") #remove doctors name
+                        tp_surgery_name = tp_gp_surgery.split('-',1)[0]
+                    else:
+                         print('You have found something else')
+            #Check for policy number and autorisation code
+                    if thirdparty_attributes != []:
+                        # print('something here')
+                        for attribute in thirdparty_attributes:
+                            third_party_attribute_text = attribute.text
+                            if "Policy Number" in third_party_attribute_text:
+                                tp_membership_no = third_party_attribute_text.split(':', 1)[1] #get the text after the :
+                            if "Authorisation Code" in third_party_attribute_text:
+                                tp_authorisation = third_party_attribute_text.split(':', 1)[1] #get the text after the :
 
             # Start creating the spreadsheet for this patient
             os.chdir(wd)
@@ -168,9 +186,9 @@ def getActivity():
     time.sleep(1)
     pymsgbox.alert('Enter Dates and  click OK')
 
-    time.sleep(2)
-    activity_BTN = driver.find_element_by_xpath('/html/body/form/div[5]/div/div/div[5]/div/div/div/div/div/div[2]/button')
-    activity_BTN.click()
+    time.sleep(1)
+    export_button = driver.find_element(By.XPATH, "//button[text()='Export to CSV']")
+    export_button.click()
     os.chdir(wd)
     os.rename(wu_activity_filename,activity_filename)
 
@@ -182,7 +200,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.2 AW 15/6/23"
+version_no = "v1.2 AW 19/6/23"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = 'C:/Users/Aliwid/OneDrive/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
