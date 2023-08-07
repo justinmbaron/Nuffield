@@ -2,6 +2,7 @@
 # v1.1 23/02/23
 # Change to match new export activities button code
 # v1.2 15/06/23  - Change to writeupp report
+# v1.3 07/08/23 Change in writeupp
 
 
 import os
@@ -37,10 +38,10 @@ def getInsuranceCompanies():
     #Find all the third party insurance companies and export them and then read into a list
     driver.get(thirdURL)
     time.sleep(1)
-    insurerSelect = driver.find_element_by_xpath('/html/body/form/div[5]/div/div[3]/div[2]/div/div[1]/select')
+    insurerSelect = driver.find_element_by_xpath('/html/body/form/div[5]/div[1]/div[3]/select')
     Select(insurerSelect).select_by_visible_text('Insurer')
     time.sleep(2)
-    exportCSV = driver.find_element_by_xpath('/html/body/form/div[5]/div/div[4]/div/div/div/div/div/div[3]/a')
+    exportCSV = driver.find_element(By.XPATH, "//a[text()='Export to CSV']")
     exportCSV.click()
     time.sleep(2)
     os.chdir(wd)
@@ -190,7 +191,10 @@ def getActivity():
     export_button = driver.find_element(By.XPATH, "//button[text()='Export to CSV']")
     export_button.click()
     os.chdir(wd)
-    os.rename(wu_activity_filename,activity_filename)
+
+    while not os.path.exists(wu_activity_filename):
+        time.sleep(1)
+    os.rename(wu_activity_filename, activity_filename)
 
 def setup_folder():
     folder_name = entryFolder.get()
@@ -200,7 +204,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.2 JB 19/06/23"
+version_no = "v1.3 JB 07/08/23"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = 'C:/Users/Justin Baron/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
