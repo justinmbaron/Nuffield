@@ -2,7 +2,7 @@
 # v1.1 23/02/23
 # Change to match new export activities button code
 # v1.2 15/06/23  - Change to writeupp report
-# v1.3 07/08/23 Change in writeupp
+# v1.3 16/08/23 Change in writeupp
 
 
 import os
@@ -191,9 +191,7 @@ def getActivity():
     export_button = driver.find_element(By.XPATH, "//button[text()='Export to CSV']")
     export_button.click()
     os.chdir(wd)
-
-    while not os.path.exists(wu_activity_filename):
-        time.sleep(1)
+    time.sleep(3)
     os.rename(wu_activity_filename, activity_filename)
 
 def setup_folder():
@@ -204,7 +202,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.3 JB 07/08/23"
+version_no = "v1.3 JB 16/08/23"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = 'C:/Users/Justin Baron/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
