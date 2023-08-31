@@ -202,7 +202,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.3 JB 16/08/23"
+version_no = "v1.4 JB 331/08/23"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = 'C:/Users/Justin Baron/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
