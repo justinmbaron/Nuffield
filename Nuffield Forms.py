@@ -202,9 +202,9 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.3 AW 16/08/23"
+version_no = "v1.4 AW 30/08/23"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
-driverPath = 'C:/Users/Aliwid/OneDrive/Desktop/Clinics/geckodriver.exe'
+driverPath = 'C:/Users/DELL/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
 loginURL = 'https://portal.writeupp.com/login'
 patientsURL = writeUppURL + '/admin/data-management/patients.aspx'
@@ -213,7 +213,7 @@ patientsByInsurer = writeUppURL + '/patientsbythirdparty.aspx'
 userName = 'aliwid5@gmail.com'
 password = 'Melanoma1!'
 testWUID = 'WU1191771'
-wd = 'C:\\Users\\Aliwid\\OneDrive\\Desktop\\Clinics'
+wd = 'C:\\Users\\DELL\\Desktop\\Clinics'
 HospitalSheetDirectory = wd+'\\Nuffield Cheltenham'
 template_file = 'Patient Booking Form.docx'
 downloadDirectory = wd
