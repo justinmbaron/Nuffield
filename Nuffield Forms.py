@@ -3,6 +3,7 @@
 # Change to match new export activities button code
 # v1.2 15/06/23  - Change to writeupp report
 # v1.3 16/08/23 Change in writeupp
+# v1.5 01/05/24 Change in Writeupp and Selenium 4 support
 
 
 import os
@@ -18,6 +19,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from tkinter import *
 import pymsgbox
 from docxtpl import DocxTemplate
+from selenium.webdriver.firefox.service import Service
 
 def loginWriteupp():
     #testfield = entrySuffix.get()
@@ -25,12 +27,12 @@ def loginWriteupp():
     loginDriver = driver
     loginDriver.get(loginURL)
     time.sleep(2)
-    userNameField = loginDriver.find_element_by_id('EmailAddress')
+    userNameField = loginDriver.find_element(By.ID,'EmailAddress')
     userNameField.send_keys(userName)
-    passwordField = driver.find_element_by_id('Password')
+    passwordField = driver.find_element(By.ID,'Password')
     passwordField.send_keys(password)
     time.sleep(1)
-    submitButton = driver.find_element_by_xpath('/html/body/div[2]/main/div/div[2]/div/form/div[3]/div/div/button')
+    submitButton = driver.find_element(By.XPATH,'/html/body/div[2]/main/div/div[2]/div/form/div[3]/div/div/button')
     submitButton.click()
     time.sleep(5)
 
@@ -38,7 +40,7 @@ def getInsuranceCompanies():
     #Find all the third party insurance companies and export them and then read into a list
     driver.get(thirdURL)
     time.sleep(1)
-    insurerSelect = driver.find_element_by_xpath('/html/body/form/div[5]/div[1]/div[3]/select')
+    insurerSelect = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[1]/div[3]/select')
     Select(insurerSelect).select_by_visible_text('Insurer')
     time.sleep(2)
     exportCSV = driver.find_element(By.XPATH, "//a[text()='Export to CSV']")
@@ -65,36 +67,36 @@ def process_patients():
             tp_appointment_date = patient[7]
             tp_appointment_type = patient[2]
             wuid = patient[0]
-            searchField = driver.find_element_by_id('ctl00_ctl00_Content_siteHead_dfSearchWidget')
+            searchField = driver.find_element(By.ID,'ctl00_ctl00_Content_siteHead_dfSearchWidget')
             searchField.send_keys(wuid)
-            driver.find_element_by_id('ctl00_ctl00_Content_siteHead_btnSearch').click()
+            driver.find_element(By.ID,'ctl00_ctl00_Content_siteHead_btnSearch').click()
             time.sleep(1)
-            age_dob_field = driver.find_element_by_id('ctl00_ctl00_Content_ContentPlaceHolderPS_dateOfBirth')
+            age_dob_field = driver.find_element(By.ID,'ctl00_ctl00_Content_ContentPlaceHolderPS_dateOfBirth')
             age_dob = age_dob_field.text
             tp_DOB = age_dob[:10]
             tp_age = age_dob[age_dob.find("(")+1:age_dob.find(")")] #grab text between the brackets
             try:
-                tp_address = driver.find_element_by_xpath('/html/body/form/div[4]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[3]/td').text
-                tp_home_phone = driver.find_element_by_xpath(
+                tp_address = driver.find_element(By.XPATH,'/html/body/form/div[4]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[3]/td').text
+                tp_home_phone = driver.find_element(By.XPATH,
                     '/html/body/form/div[4]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[1]/td/span/a').text
-                tp_mobile = driver.find_element_by_xpath(
+                tp_mobile = driver.find_element(By.XPATH,
                     '/html/body/form/div[4]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[3]/td/span/a').text
                 tp_email = driver.find_element_by_xpath(
                     '/html/body/form/div[4]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[4]/td/span/a').text
-                tp_nhs = driver.find_element_by_xpath(
+                tp_nhs = driver.find_element(By.XPATH,
                     '/html/body/form/div[4]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[8]/td/div/p').text
             except:
-                tp_address = driver.find_element_by_xpath(
+                tp_address = driver.find_element(By.XPATH,
                     '/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[3]/td').text
 
-                tp_home_phone = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[1]/td/span/a').text
-                tp_mobile = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[3]/td/span/a').text
-                tp_email = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[4]/td/span/a').text
-                tp_nhs = driver.find_element_by_xpath('/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[8]/td/div/p').text
+                tp_home_phone = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[1]/td/span/a').text
+                tp_mobile = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[3]/td/span/a').text
+                tp_email = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[4]/td/span/a').text
+                tp_nhs = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[8]/td/div/p').text
 
             #Get GP and insurance details
-            third_parties = driver.find_elements_by_class_name('patient-summary__third-parties__name')
-            thirdparty_attributes = driver.find_elements_by_class_name('patient-summary__third-parties__attribute')
+            third_parties = driver.find_elements(By.CLASS_NAME,'patient-summary__third-parties__name')
+            thirdparty_attributes = driver.find_elements(By.CLASS_NAME,'patient-summary__third-parties__attribute')
             #set theses tom blank in case they don't exist
             tp_insurance_co = ''
             tp_insurance_co_address =''
@@ -188,8 +190,12 @@ def getActivity():
     pymsgbox.alert('Enter Dates and  click OK')
 
     time.sleep(1)
-    export_button = driver.find_element(By.XPATH, "//button[text()='Export to CSV']")
+    export_button = driver.find_element(By.XPATH, "/html/body/form/div[5]/div/div/div[6]/div/div/div/div/div/div/div")
     export_button.click()
+    time.sleep(1)
+    export_csv_button = driver.find_element(By.XPATH, "/html/body/form/div[5]/div/div/div[6]/div/div/div/div/div/div/div/ul/li[2]/button")
+    export_csv_button.click()
+    time.sleep(3) # increased as ile sometimes not there at point of rename
     os.chdir(wd)
     time.sleep(3)
     os.rename(wu_activity_filename, activity_filename)
@@ -202,7 +208,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.4 AW 30/08/23"
+version_no = "v1.5 AW 01/05/24"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = 'C:/Users/DELL/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
@@ -223,16 +229,28 @@ activity_filename = 'Activity.csv'
 
 
 
+firefox_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
+
 firefox_options = Options()
-firefox_options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
+firefox_options.binary_location = firefox_location
+firefox_options.add_argument("--disable-infobars")
+firefox_options.add_argument("--disable-extensions")
+firefox_options.add_argument("--disable-popup-blocking")
+# Set the download directory preference (Assuming you have defined downloadDirectory somewhere in your code)
+firefox_options.set_preference('browser.download.dir', downloadDirectory)
+firefox_options.set_preference('browser.download.folderList', 2)
+firefox_options.set_preference('browser.download.manager.showWhenStarting', False)
+firefox_options.set_preference('browser.helperApps.neverAsk.saveToDisk', 'text/csv')
+firefox_options.set_preference('browser.download.panel.shown', False)
+firefox_options.set_preference('browser.download.manager.showAlertOnComplete', False)
 
-profile = webdriver.FirefoxProfile()
-profile.set_preference('browser.download.folderList', 2)
-profile.set_preference('browser.download.manager.showWhenStarting',False)
-profile.set_preference('browser.download.dir', downloadDirectory)
-profile.set_preference('browser.helperApps.neverAsk.saveToDisk','text/csv')
-driver = webdriver.Firefox(executable_path = driverPath,firefox_profile=profile, options=firefox_options)
+# Update the driver path (Assuming you have defined driverPath somewhere in your code)
+driver_path = driverPath
 
+driver = webdriver.Firefox(
+    service=Service(driver_path),  # Pass the service object with the driver path
+    options=firefox_options
+)
 
 driver.implicitly_wait(10)
 
