@@ -22,28 +22,31 @@ from docxtpl import DocxTemplate
 from selenium.webdriver.firefox.service import Service
 
 def loginWriteupp():
-    #testfield = entrySuffix.get()
+    #testfield = entrySuffix.get()f
     #Login to writeUpp
     loginDriver = driver
     loginDriver.get(loginURL)
     time.sleep(2)
-    userNameField = loginDriver.find_element(By.ID,'EmailAddress')
+    userNameField = loginDriver.find_element(By.ID,'EmailInput')
     userNameField.send_keys(userName)
-    passwordField = driver.find_element(By.ID,'Password')
+    passwordField = driver.find_element(By.ID,'PasswordInput')
     passwordField.send_keys(password)
     time.sleep(1)
-    submitButton = driver.find_element(By.XPATH,'/html/body/div[2]/main/div/div[2]/div/form/div[3]/div/div/button')
+    submitButton = driver.find_element(By.XPATH,'/html/body/section/div[2]/form/button')
     submitButton.click()
     time.sleep(5)
 
 def getInsuranceCompanies():
     #Find all the third party insurance companies and export them and then read into a list
     driver.get(thirdURL)
-    time.sleep(1)
-    insurerSelect = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[1]/div[3]/select')
+    time.sleep(2)
+    insurerSelect = driver.find_element(By.XPATH,'/html/body/form/div[5]/div/div/div[2]/select')
     Select(insurerSelect).select_by_visible_text('Insurer')
     time.sleep(2)
-    exportCSV = driver.find_element(By.XPATH, "//a[text()='Export to CSV']")
+    searchButton = driver.find_element(By.XPATH,'/html/body/form/div[5]/div/div/div[3]/button')
+    searchButton.click()
+    time.sleep(2)
+    exportCSV = driver.find_element(By.XPATH, "/html/body/form/div[5]/div/div/div[4]/div/div/div/div/div/div[3]/button")
     exportCSV.click()
     time.sleep(2)
     os.chdir(wd)
@@ -101,6 +104,10 @@ def process_patients():
             tp_insurance_co = ''
             tp_insurance_co_address =''
             tp_membership_no =''
+            # Remove extra text from the address
+            tp_address = tp_address.replace('Show on Google Map', '')
+
+
             tp_gp_surgery =''
             tp_authorisation =''
             for third_party in third_parties:
@@ -206,7 +213,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.5 JB 01/05/24"
+version_no = "v1.6 JB 08/07/24"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = "C:\\Users\\justi\\Dropbox\\PC (2)\\Desktop\\Clinics\\geckodriver.exe"
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
