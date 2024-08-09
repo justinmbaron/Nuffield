@@ -1,9 +1,13 @@
+# This works on Gemmas Computer
+
+
 # Creates Multiple word documents for Nuffield using a word template
 # v1.1 23/02/23
 # Change to match new export activities button code
 # v1.2 15/06/23  - Change to writeupp report
 # v1.3 16/08/23 Change in writeupp
 # v1.5 01/05/24 Change in Writeupp and Selenium 4 support
+# v1.6 09/08/24 Change in Writeupp
 
 
 import os
@@ -213,18 +217,18 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.6 JB 08/07/24"
+version_no = "v1.6 GL 09/08/24"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
-driverPath = "C:\\Users\\justi\\Dropbox\\PC (2)\\Desktop\\Clinics\\geckodriver.exe"
+driverPath = "C:\\Users\\Gemma\\Desktop\Clinics\\geckodriver.exe"
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
 loginURL = 'https://portal.writeupp.com/login'
 patientsURL = writeUppURL + '/admin/data-management/patients.aspx'
 activityURL = writeUppURL + '/contactsbydate.aspx'
 patientsByInsurer = writeUppURL + '/patientsbythirdparty.aspx'
-userName = 'aliwid5@gmail.com'
-password = 'Melanoma1!'
+userName = 'gemmamlines@yahoo.com'
+password = 'Marklines1987!'
 testWUID = 'WU1191771'
-wd = 'C:\\Users\\justi\\Dropbox\\PC (2)\\Desktop\\Clinics'
+wd = 'C:\\Users\\Gemma\\Desktop\\Clinics'
 HospitalSheetDirectory = wd+'\\Nuffield Cheltenham'
 template_file = 'Patient Booking Form.docx'
 downloadDirectory = wd
