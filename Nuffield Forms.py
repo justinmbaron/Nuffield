@@ -219,7 +219,7 @@ def setup_folder():
 
 version_no = "v1.6 GL 09/08/24"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
-driverPath = "C:\\Users\\Gemma\\Desktop\Clinics\\geckodriver.exe"
+driverPath = "C:\\Users\\Gemma\\OneDrive\\Desktop\Clinics\\geckodriver.exe"
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
 loginURL = 'https://portal.writeupp.com/login'
 patientsURL = writeUppURL + '/admin/data-management/patients.aspx'
@@ -228,7 +228,7 @@ patientsByInsurer = writeUppURL + '/patientsbythirdparty.aspx'
 userName = 'gemmamlines@yahoo.com'
 password = 'Marklines1987!'
 testWUID = 'WU1191771'
-wd = 'C:\\Users\\Gemma\\Desktop\\Clinics'
+wd = 'C:\\Users\\Gemma\\OneDrive\\Desktop\\Clinics'
 HospitalSheetDirectory = wd+'\\Nuffield Cheltenham'
 template_file = 'Patient Booking Form.docx'
 downloadDirectory = wd
