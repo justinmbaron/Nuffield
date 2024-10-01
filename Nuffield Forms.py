@@ -4,6 +4,7 @@
 # v1.2 15/06/23  - Change to writeupp report
 # v1.3 16/08/23 Change in writeupp
 # v1.5 01/05/24 Change in Writeupp and Selenium 4 support
+# v1.6 01/10/24 Change to CSV format
 
 
 import os
@@ -61,7 +62,7 @@ def getInsuranceCompanies():
 
 def process_patients():
     os.chdir(wd)
-    with open(activity_filename) as p:
+    with open(activity_filename, 'r', encoding='utf-8') as p:
         patients = csv.reader(p)
         next(patients) # skip header row
         for patient in patients:
