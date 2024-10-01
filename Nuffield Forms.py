@@ -8,6 +8,7 @@
 # v1.3 16/08/23 Change in writeupp
 # v1.5 01/05/24 Change in Writeupp and Selenium 4 support
 # v1.6 09/08/24 Change in Writeupp
+# v1.7 01/10/24 Change top CSV format
 
 
 import os
@@ -65,7 +66,7 @@ def getInsuranceCompanies():
 
 def process_patients():
     os.chdir(wd)
-    with open(activity_filename) as p:
+    with open(activity_filename, 'r', encoding='utf-8') as p:
         patients = csv.reader(p)
         next(patients) # skip header row
         for patient in patients:
@@ -217,7 +218,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.6 GL 09/08/24"
+version_no = "v1.7 GL 01/10/24"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = "C:\\Users\\Gemma\\OneDrive\\Desktop\Clinics\\geckodriver.exe"
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
