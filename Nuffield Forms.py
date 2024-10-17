@@ -7,8 +7,8 @@
 # v1.2 15/06/23  - Change to writeupp report
 # v1.3 16/08/23 Change in writeupp
 # v1.5 01/05/24 Change in Writeupp and Selenium 4 support
-# v1.6 09/08/24 Change in Writeupp
-# v1.7 01/10/24 Change top CSV format
+# v1.7 01/10/24 Change to CSV format
+# v1.8 15/10/24 Change to HTMl on Patient Page
 
 
 import os
@@ -95,12 +95,12 @@ def process_patients():
                     '/html/body/form/div[4]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[8]/td/div/p').text
             except:
                 tp_address = driver.find_element(By.XPATH,
-                    '/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[3]/td').text
+                    '/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[4]/td').text
 
                 tp_home_phone = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[1]/td/span/a').text
                 tp_mobile = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[3]/td/span/a').text
                 tp_email = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[4]/td/span/a').text
-                tp_nhs = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[8]/td/div/p').text
+                tp_nhs = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[10]/td').text
 
             #Get GP and insurance details
             third_parties = driver.find_elements(By.CLASS_NAME,'patient-summary__third-parties__name')
@@ -218,7 +218,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.7 GL 01/10/24"
+version_no = "v1.8 GL 15/10/24"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = "C:\\Users\\Gemma\\OneDrive\\Desktop\Clinics\\geckodriver.exe"
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
