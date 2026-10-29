@@ -37,6 +37,7 @@ def loginWriteupp():
     time.sleep(1)
     submitButton = driver.find_element(By.XPATH,'/html/body/section/div[2]/form/button')
     submitButton.click()
+    pymsgbox.alert('Please complete 2FA and then press OK')
     time.sleep(5)
 
 def getInsuranceCompanies():
@@ -92,6 +93,7 @@ def process_patients():
                 tp_nhs = driver.find_element(By.XPATH,
                     '/html/body/form/div[4]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[8]/td/div/p').text
             except:
+                tp_address = driver.find_element(By.XPATH,
                 tp_address = driver.find_element(By.XPATH,
                     '/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[4]/td').text
 
@@ -217,7 +219,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.8 AW 15/10/24"
+version_no = "v1.9 AW 29/10/26"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = 'C:/Users/DELL/Desktop/Clinics/geckodriver.exe'
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
