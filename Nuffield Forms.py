@@ -95,7 +95,7 @@ def process_patients():
             except:
                 tp_address = driver.find_element(By.XPATH,
                 tp_address = driver.find_element(By.XPATH,
-                    '/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[4]/td').text
+                    '/html/body/form/div[5]/div[3]/div/div/div[1]/article[1]/table/tbody/tr[4]/td').text)
 
                 tp_home_phone = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[1]/td/span/a').text
                 tp_mobile = driver.find_element(By.XPATH,'/html/body/form/div[5]/div[3]/div/div/div[2]/article[1]/table/tbody/tr[3]/td/span/a').text
