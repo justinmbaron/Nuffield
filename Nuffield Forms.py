@@ -39,6 +39,7 @@ def loginWriteupp():
     time.sleep(1)
     submitButton = driver.find_element(By.XPATH,'/html/body/section/div[2]/form/button')
     submitButton.click()
+    pymsgbox.alert('Please complete 2FA and then press OK')
     time.sleep(5)
 
 def getInsuranceCompanies():
@@ -208,7 +209,8 @@ def getActivity():
     export_csv_button.click()
     time.sleep(3) # increased as ile sometimes not there at point of rename
     os.chdir(wd)
-    os.rename(wu_activity_filename,activity_filename)
+    time.sleep(3)
+    os.rename(wu_activity_filename, activity_filename)
 
 def setup_folder():
     folder_name = entryFolder.get()
@@ -218,7 +220,7 @@ def setup_folder():
         os.mkdir(this_dir)
     return
 
-version_no = "v1.8 GL 15/10/24"
+version_no = "v1.9 29/10/26"
 writeUppURL = 'https://dr-emma-howard-dermatology.writeupp.com/'
 driverPath = "C:\\Users\\Gemma\\OneDrive\\Desktop\Clinics\\geckodriver.exe"
 thirdURL = writeUppURL + '/admin/thirdparties.aspx'
